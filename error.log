@@ -1,0 +1,5 @@
+﻿[dotenv@17.2.4] injecting env (3) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+Server running on port 5000
+MongoDB Connected
+[0mGET /favicon.ico [33m404[0m 2.920 ms - 150[0m
+[0mPOST /api/chat/send [33m400[0m 3.701 ms - 28[0m

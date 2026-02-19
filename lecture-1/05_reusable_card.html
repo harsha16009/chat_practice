@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reusable Card</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Card(props) {
+            return (
+                <div style={{ border: "1px solid #ccc", padding: "10px", margin: "10px" }}>
+                    <h2>{props.title}</h2>
+                    <p>{props.description}</p>
+                </div>
+            );
+        }
+        function App() {
+            return (
+                <div>
+                    <Card title="React" description="React is a JavaScript library for building user interfaces." />
+                    <Card title="Node" description="Node.js is a JavaScript runtime built on the V8 engine." />
+                    <Card title="MongoDB" description="MongoDB is a NoSQL database management system." />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
