@@ -13,22 +13,21 @@ const app = express();
 const server = http.createServer(app);
 initSocket(server);
 
-// middleware
+// Middleware
 app.use(cors());
 app.use(express.json({ limit: "5mb" }));
-app.use(express.static("public"));
 app.use(morgan("dev"));
 
-// routes
+// Serve static files (VERY IMPORTANT)
+app.use(express.static("public"));
+
+// API routes
 app.use("/api/chat", chatRoutes);
 
-// health
-app.get("/", (req, res) => res.send("Chat API Running"));
-
-// error middleware
+// Error middleware (only once, at bottom)
 app.use(errorMiddleware);
 
-//DB + server start
+// Connect DB + Start Server
 connectDB();
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
